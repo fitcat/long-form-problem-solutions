@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dish {
+    private static final double DISH_PRICE = 10.00;
 
     private String name;
     private String description;
@@ -55,4 +56,6 @@ public class Dish {
     public void setRecipe(String recipe) {
         this.recipe = recipe;
     }
+
+    public double getPrice() { return DISH_PRICE; }
 }

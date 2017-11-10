@@ -3,15 +3,16 @@ package model;
 import java.util.List;
 
 public class Order {
+    private static int orderNumber = 100;
 
     private int number;
     private boolean served;
     private boolean prepared;
     private Dish dish;
 
-    public Order(Dish dish, int orderNumber) {
+    public Order(Dish dish) {
         this.dish = dish;
-        this.number = orderNumber;
+        this.number = orderNumber++;
     }
 
     //EFFECTS: prints this order with number, dish and any modifications
@@ -29,6 +30,8 @@ public class Order {
     public Dish getDish() {
         return dish;
     }
+
+    public double getDishPrice() { return dish.getPrice(); }
 
     //EFFECTS: returns the recipe to follow for this order
     public String getOrderRecipe() {

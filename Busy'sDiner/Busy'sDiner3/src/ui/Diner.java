@@ -9,21 +9,21 @@ public class Diner {
 
     public static void main(String[] args) {
         Dish dish = generateTurkeyClubSandwich();
-        Server server = new Server(dish);
+        Servable  server = new Server();
         Chef chef = new Chef();
-        Server host = new Host(dish);
+        Servable host = new Host();
 
         //Table 1
         System.out.println("Table " + 1 + ":\n");
 
         server.greet();
-        server.describeDish();
-        Order o = server.takeOrder();
+        server.describeDish(dish);
+        Order o = server.takeOrder(dish);
 
         System.out.println();
         chef.makeDish(o);
 
-        doOrderRoutine(server, o);
+        server.doOrderRoutine(o);
         System.out.println();
 
 
@@ -31,31 +31,17 @@ public class Diner {
         System.out.println("Table " + 2 + ":\n");
 
         host.greet();
-        host.describeDish();
-        System.out.println();
-        host.takeOrder();
+        host.describeDish(dish);
 
-        System.out.println("Oops! Let's let the server handle that...");
-
-        Order o2 = server.takeOrder();
+        Order o2 = server.takeOrder(dish);
         System.out.println();
         chef.makeDish(o2);
 
-        doOrderRoutine(host, o2);
-        System.out.println("Whoops!");
-        server.takePayment(o2);
-
+        host.doOrderRoutine(o2);
+        server.doOrderRoutine(o2);
 
         System.out.println();
         chef.doDishes();
-    }
-
-    private static void doOrderRoutine(Server s, Order o) {
-        System.out.println();
-        if (o.isReadyToBeServed())
-            s.deliverFood(o);
-        if(o.isReadyToBePaid())
-            s.takePayment(o);
     }
 
     private static Dish generateTurkeyClubSandwich() {
