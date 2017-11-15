@@ -1,12 +1,8 @@
 package model;
 
-public interface Servable {
+public interface IHost {
     String getPrefix();
     void doOrderRoutine(Order o);
-
-    default Order takeOrder(Dish dish) { throw new UnsupportedOperationException(); }
-
-    default double takePayment(Order o) { throw new UnsupportedOperationException(); }
 
     //EFFECTS: prints out a description of the dish on the menu
     default void describeDish(Dish dish) {

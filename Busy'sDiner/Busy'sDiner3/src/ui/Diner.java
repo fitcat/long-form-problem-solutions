@@ -9,9 +9,9 @@ public class Diner {
 
     public static void main(String[] args) {
         Dish dish = generateTurkeyClubSandwich();
-        Servable  server = new Server();
+        Server server = new Server();
         Chef chef = new Chef();
-        Servable host = new Host();
+        Host host = new Host();
 
         //Table 1
         System.out.println("Table " + 1 + ":\n");

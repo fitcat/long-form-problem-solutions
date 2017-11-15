@@ -1,6 +1,6 @@
 package model;
 
-public class Server implements Servable {
+public class Server implements IServer {
     //MODIFIES: this
     //EFFECTS: creates new order with the dish on the menu
     @Override
