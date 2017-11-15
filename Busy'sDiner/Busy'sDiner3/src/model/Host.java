@@ -1,6 +1,6 @@
 package model;
 
-public class Host implements Servable {
+public class Host implements IHost {
 
     @Override
     public String getPrefix() {
